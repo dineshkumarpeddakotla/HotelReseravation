@@ -15,9 +15,9 @@ public class HotelReservationSystem {
     private static final Map<String, Hotel> listOfHotels = new HashMap<>();
 
     //Added Multiple Hotels
-    Hotel lakewood = new Hotel("Lakewood",110, 90);
-    Hotel bridgewood = new Hotel("Bridgewood", 150,50);
-    Hotel ridgewood = new Hotel("Ridgewood", 220,150);
+    Hotel lakewood = new Hotel("Lakewood",110, 90,3);
+    Hotel bridgewood = new Hotel("Bridgewood", 150,50,4);
+    Hotel ridgewood = new Hotel("Ridgewood", 220,150,5);
 
     //Added Hotels to listOfHotels
     public void addHotel() {
@@ -25,13 +25,6 @@ public class HotelReservationSystem {
         listOfHotels.put("Bridgewood", bridgewood);
         listOfHotels.put("Ridgewood",ridgewood);
     }
-
-//    public int numberOfDays(String checkInDate, String checkOutDate){
-//        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//        LocalDate checkIn = LocalDate.parse(checkInDate, dateFormatter);
-//        LocalDate checkOut = LocalDate.parse(checkOutDate, dateFormatter);
-//        return (checkOut.getDayOfYear() - checkIn.getDayOfYear()) +1;
-//    }
 
     /**
      * Find the Cheapest Hotels and cost
