@@ -9,9 +9,9 @@ import java.util.Map;
 public class HotelReservationSystem {
     private static final Map<String, Hotel> listOfHotels = new HashMap<>();
 
-    Hotel lakewood = new Hotel("Lakewood",110);
-    Hotel bridgewood = new Hotel("Bridgewood", 160);
-    Hotel ridgewood = new Hotel("Ridgewood", 220);
+    Hotel lakewood = new Hotel("Lakewood",110, 90);
+    Hotel bridgewood = new Hotel("Bridgewood", 150,50);
+    Hotel ridgewood = new Hotel("Ridgewood", 220,150);
 
     public void addHotel() {
         listOfHotels.put("Lakewood", lakewood);
@@ -29,9 +29,9 @@ public class HotelReservationSystem {
     public String findCheapestHotel(String checkIn, String checkOut) {
         int numberOfDays = numberOfDays(checkIn, checkOut);
         Hotel cheapestHotel = listOfHotels.values().stream()
-                .min(Comparator.comparingInt(Hotel::getPrice))
+                .min(Comparator.comparingInt(Hotel::getWeekdayPrice))
                 .orElseThrow();
-        int cheapestHotelPrice = cheapestHotel.getPrice();
+        int cheapestHotelPrice = cheapestHotel.getWeekdayPrice();
         String cheapestHotelName = cheapestHotel.getHotelName();
         int totalPrice = cheapestHotelPrice * numberOfDays;
         switch (cheapestHotelName) {
