@@ -4,12 +4,9 @@ public class Hotel {
     private String hotelName;
     private int weekdayPrice;
     private int weekendPrice;
+    public int totalPrice;
 
-    public Hotel(String hotelName, int weekdayPrice, int weekendPrice){
-        setHotelName(hotelName);
-        setWeekdayPrice(weekdayPrice);
-        setWeekendPrice(weekendPrice);
-    }
+
     public String getHotelName() {
         return hotelName;
     }
@@ -26,6 +23,12 @@ public class Hotel {
         this.weekdayPrice = weekdayPrice;
     }
 
+    public Hotel(String hotelName, int weekdayPrice, int weekendPrice) {
+        setHotelName(hotelName);
+        setWeekdayPrice(weekdayPrice);
+        setWeekendPrice(weekendPrice);
+    }
+
     public int getWeekendPrice() {
         return weekendPrice;
     }
@@ -34,12 +37,15 @@ public class Hotel {
         this.weekendPrice = weekendPrice;
     }
 
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
     @Override
     public String toString() {
         return "Hotel{" +
-                "hotelName='" + hotelName + '\'' +
-                ", weekdayPrice=" + weekdayPrice +
-                ", weekendPrice=" + weekendPrice +
+                "HotelName ='" + hotelName + '\'' +
+                ", Total Price = $" + totalPrice +
                 '}';
     }
 }
