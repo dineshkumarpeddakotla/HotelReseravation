@@ -2,12 +2,12 @@ package com.hotelreservation;
 
 public class Hotel {
     private String hotelName;
-    private int weekdayRegularCustomerPrice;
-    private int weekendRegularCustomerPrice;
+    private int weekdayPrice;
+    private int weekendPrice;
     public int totalPrice;
     private int rating;
     private int weekdayRewardCustomerPrice;
-    private int weekendRewardCustomerPrice;
+    private int weekendCostRewardCustomerPrice;
 
 
     public String getHotelName() {
@@ -18,20 +18,20 @@ public class Hotel {
         this.hotelName = hotelName;
     }
 
-    public int getWeekdayRegularCustomerPrice() {
-        return weekdayRegularCustomerPrice;
+    public int getWeekdayPrice() {
+        return weekdayPrice;
     }
 
-    public void setWeekdayRegularCustomerPrice(int weekdayRegularCustomerPrice) {
-        this.weekdayRegularCustomerPrice = weekdayRegularCustomerPrice;
+    public void setWeekdayPrice(int weekdayPrice) {
+        this.weekdayPrice = weekdayPrice;
     }
 
-    public int getWeekendRegularCustomerPrice() {
-        return weekendRegularCustomerPrice;
+    public int getWeekendPrice() {
+        return weekendPrice;
     }
 
-    public void setWeekendRegularCustomerPrice(int weekendRegularCustomerPrice) {
-        this.weekendRegularCustomerPrice = weekendRegularCustomerPrice;
+    public void setWeekendPrice(int weekendPrice) {
+        this.weekendPrice = weekendPrice;
     }
 
     public int getRating() {
@@ -51,21 +51,21 @@ public class Hotel {
     }
 
     public int getWeekendRewardCustomerPrice() {
-        return weekendRewardCustomerPrice;
+        return weekendCostRewardCustomerPrice;
     }
 
-    public void setWeekendRewardCustomerPrice(int weekendRewardCustomerPrice) {
-        this.weekendRewardCustomerPrice = weekendRewardCustomerPrice;
+    public void setWeekendCostRewardCustomerPrice(int weekendCostRewardCustomerPrice) {
+        this.weekendCostRewardCustomerPrice = weekendCostRewardCustomerPrice;
     }
 
-    public Hotel(String hotelName, int weekdayRegularCustomerPrice, int weekendRegularCustomerPrice, int rating,
-                 int weekdayRewardCustomerPrice, int weekendRewardCustomerPrice) {
+    public Hotel(String hotelName, int weekdayPrice, int weekendPrice, int rating,
+                 int weekdayRewardCustomerPrice, int weekendCostRewardCustomerPrice) {
         setHotelName(hotelName);
-        setWeekdayRegularCustomerPrice(weekdayRegularCustomerPrice);
-        setWeekendRegularCustomerPrice(weekendRegularCustomerPrice);
+        setWeekdayPrice(weekdayPrice);
+        setWeekendPrice(weekendPrice);
         setRating(rating);
         setWeekdayRewardCustomerPrice(weekdayRewardCustomerPrice);
-        setWeekendRewardCustomerPrice(weekendRewardCustomerPrice);
+        setWeekendCostRewardCustomerPrice(weekendCostRewardCustomerPrice);
     }
 
     @Override

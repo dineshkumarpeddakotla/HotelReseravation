@@ -75,9 +75,9 @@ public class HotelReservationSystem {
             DayOfWeek day = date.getDayOfWeek();
 
             if(day.toString().equals("SUNDAY") || day.toString().equals("SATURDAY")) {
-                hotel.getValue().totalPrice = hotel.getValue().totalPrice + hotel.getValue().getWeekendRegularCustomerPrice();
+                hotel.getValue().totalPrice = hotel.getValue().totalPrice + hotel.getValue().getWeekendPrice();
             } else {
-                hotel.getValue().totalPrice = hotel.getValue().totalPrice + hotel.getValue().getWeekdayRegularCustomerPrice();
+                hotel.getValue().totalPrice = hotel.getValue().totalPrice + hotel.getValue().getWeekdayPrice();
             }
         }
     }

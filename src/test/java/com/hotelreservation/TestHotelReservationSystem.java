@@ -14,7 +14,7 @@ public class TestHotelReservationSystem {
         hotelReservationSystem.addHotel();
 
         String hotelName = hotelReservationSystem.ridgewood.getHotelName();
-        Integer hotelPrice = hotelReservationSystem.ridgewood.getWeekdayRegularCustomerPrice();
+        Integer hotelPrice = hotelReservationSystem.ridgewood.getWeekdayPrice();
 
         System.out.print(hotelName);
         System.out.println(" Price is $" +hotelPrice);
@@ -30,7 +30,7 @@ public class TestHotelReservationSystem {
         hotelReservationSystem.addHotel();
 
         String hotelName = hotelReservationSystem.ridgewood.getHotelName();
-        Integer hotelPrice = hotelReservationSystem.ridgewood.getWeekdayRegularCustomerPrice();
+        Integer hotelPrice = hotelReservationSystem.ridgewood.getWeekdayPrice();
 
         Assertions.assertEquals("Ridgewood", hotelName );
         Assertions.assertEquals(220, hotelPrice);
@@ -71,5 +71,20 @@ public class TestHotelReservationSystem {
         System.out.println(bestRatedHotel);
 
         Assertions.assertEquals("Ridgewood=Hotel{hotelName='Ridgewood', totalPrice = $370, rating = 5}", bestRatedHotel.toString());
+    }
+
+    @Test
+    public void whenRewardCustomerPricesOfHotelIsAddedToList(){
+        HotelReservationSystem hotelReservationSystem = new HotelReservationSystem();
+
+        hotelReservationSystem.addHotel();
+
+        String hotelName = hotelReservationSystem.ridgewood.getHotelName();
+        Integer weekdayRewardCustomerPrice = hotelReservationSystem.ridgewood.getWeekdayRewardCustomerPrice();
+        Integer weekendRewardCustomerPrice = hotelReservationSystem.ridgewood.getWeekendRewardCustomerPrice();
+
+        Assertions.assertEquals("Ridgewood", hotelName );
+        Assertions.assertEquals(100,weekdayRewardCustomerPrice);
+        Assertions.assertEquals(40, weekendRewardCustomerPrice);
     }
 }
