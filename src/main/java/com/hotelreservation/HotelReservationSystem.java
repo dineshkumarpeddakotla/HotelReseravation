@@ -1,31 +1,50 @@
 package com.hotelreservation;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
 public class HotelReservationSystem {
-    private static final Map<String, Hotel> hotelList = new HashMap<>();
+    private static final Map<String, Hotel> listOfHotels = new HashMap<>();
 
-    Hotel lakewood = new Hotel();
-    Hotel bridgewood = new Hotel();
-    Hotel ridgewood = new Hotel();
+    Hotel lakewood = new Hotel("Lakewood",110);
+    Hotel bridgewood = new Hotel("Bridgewood", 160);
+    Hotel ridgewood = new Hotel("Ridgewood", 220);
 
     public void addHotel() {
-        lakewood.setHotelName("Lakewood");
-        lakewood.setPrice(110);
+        listOfHotels.put("Lakewood", lakewood);
+        listOfHotels.put("Bridgewood", bridgewood);
+        listOfHotels.put("Ridgewood",ridgewood);
+    }
 
-        bridgewood.setHotelName("Bridgewood");
-        bridgewood.setPrice(160);
+    public int numberOfDays(String checkInDate, String checkOutDate){
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate checkIn = LocalDate.parse(checkInDate, dateFormatter);
+        LocalDate checkOut = LocalDate.parse(checkOutDate, dateFormatter);
+        return (checkOut.getDayOfYear() - checkIn.getDayOfYear()) +1;
+    }
 
-        ridgewood.setHotelName("Ridgewood");
-        ridgewood.setPrice(220);
-
-        hotelList.put("Lakewood", lakewood);
-        hotelList.put("Bridgewood", bridgewood);
-        hotelList.put("Ridgewood",ridgewood);
+    public String findCheapestHotel(String checkIn, String checkOut) {
+        int numberOfDays = numberOfDays(checkIn, checkOut);
+        Hotel cheapestHotel = listOfHotels.values().stream()
+                .min(Comparator.comparingInt(Hotel::getPrice))
+                .orElseThrow();
+        int cheapestHotelPrice = cheapestHotel.getPrice();
+        String cheapestHotelName = cheapestHotel.getHotelName();
+        int totalPrice = cheapestHotelPrice * numberOfDays;
+        switch (cheapestHotelName) {
+            case "Lakewood":
+                return "Lakewood, Total Price = $" + totalPrice;
+            case "Bridgewood":
+                return "Bridgewood, Total Price = $" + totalPrice;
+            case "Ridgewood":
+                return "Ridgewood, Total Price = $" + totalPrice;
+        }
+        return "more than one cheap hotels";
     }
     public void print(){
-        hotelList.forEach((key, value) -> System.out.println(value));
+        listOfHotels.forEach((key, value) -> System.out.println(value));
     }
-
 }

@@ -20,6 +20,17 @@ public class TestHotelReservationSystem {
 
         Assertions.assertEquals("Ridgewood", hotelName );
         Assertions.assertEquals(220, hotelPrice);
+    }
 
+    @Test
+    public void givenRangeOfDates_returnCheapestHotelAtThatPeriod() {
+        HotelReservationSystem hotelReservationSystem = new HotelReservationSystem();
+        hotelReservationSystem.addHotel();
+
+        String cheapestHotel = hotelReservationSystem.findCheapestHotel("10/09/2020", "11/09/2020");
+
+        System.out.println(cheapestHotel);
+
+        Assertions.assertEquals("Lakewood, Total Price = $220", cheapestHotel);
     }
 }
