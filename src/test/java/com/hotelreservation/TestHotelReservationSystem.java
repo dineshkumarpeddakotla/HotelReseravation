@@ -14,7 +14,7 @@ public class TestHotelReservationSystem {
         hotelReservationSystem.addHotel();
 
         String hotelName = hotelReservationSystem.ridgewood.getHotelName();
-        Integer hotelPrice = hotelReservationSystem.ridgewood.getWeekdayPrice();
+        Integer hotelPrice = hotelReservationSystem.ridgewood.getWeekdayRegularCustomerPrice();
 
         System.out.print(hotelName);
         System.out.println(" Price is $" +hotelPrice);
@@ -30,7 +30,7 @@ public class TestHotelReservationSystem {
         hotelReservationSystem.addHotel();
 
         String hotelName = hotelReservationSystem.ridgewood.getHotelName();
-        Integer hotelPrice = hotelReservationSystem.ridgewood.getWeekdayPrice();
+        Integer hotelPrice = hotelReservationSystem.ridgewood.getWeekdayRegularCustomerPrice();
 
         Assertions.assertEquals("Ridgewood", hotelName );
         Assertions.assertEquals(220, hotelPrice);

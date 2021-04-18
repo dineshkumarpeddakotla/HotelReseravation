@@ -13,9 +13,9 @@ public class HotelReservationSystem {
     private static final Map<String, Hotel> listOfHotels = new HashMap<>();
 
     //Added Multiple Hotels
-    Hotel lakewood = new Hotel("Lakewood",110, 90,3);
-    Hotel bridgewood = new Hotel("Bridgewood", 150,50,4);
-    Hotel ridgewood = new Hotel("Ridgewood", 220,150,5);
+    Hotel lakewood = new Hotel("Lakewood",110, 90,3,80,80);
+    Hotel bridgewood = new Hotel("Bridgewood", 150,50,4,110,50);
+    Hotel ridgewood = new Hotel("Ridgewood", 220,150,5,100,40);
 
     //Added Hotels to listOfHotels
     public void addHotel() {
@@ -75,14 +75,14 @@ public class HotelReservationSystem {
             DayOfWeek day = date.getDayOfWeek();
 
             if(day.toString().equals("SUNDAY") || day.toString().equals("SATURDAY")) {
-                hotel.getValue().totalPrice = hotel.getValue().totalPrice + hotel.getValue().getWeekendPrice();
+                hotel.getValue().totalPrice = hotel.getValue().totalPrice + hotel.getValue().getWeekendRegularCustomerPrice();
             } else {
-                hotel.getValue().totalPrice = hotel.getValue().totalPrice + hotel.getValue().getWeekdayPrice();
+                hotel.getValue().totalPrice = hotel.getValue().totalPrice + hotel.getValue().getWeekdayRegularCustomerPrice();
             }
         }
     }
 
-    public void print(){
-        listOfHotels.forEach((key, value) -> System.out.println(value));
-    }
+//    public void print(){
+//        listOfHotels.forEach((key, value) -> System.out.println(value));
+//    }
 }
