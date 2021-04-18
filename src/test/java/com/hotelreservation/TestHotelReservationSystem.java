@@ -12,7 +12,7 @@ public class TestHotelReservationSystem {
         hotelReservationSystem.addHotel();
 
         String hotelName = hotelReservationSystem.ridgewood.getHotelName();
-        Integer hotelPrice = hotelReservationSystem.ridgewood.getPrice();
+        Integer hotelPrice = hotelReservationSystem.ridgewood.getWeekdayPrice();
 
         System.out.print(hotelName);
         System.out.println(" Price is $" +hotelPrice);
@@ -23,7 +23,7 @@ public class TestHotelReservationSystem {
     }
 
     @Test
-    public void givenRangeOfDates_returnCheapestHotelAtThatPeriod() {
+    public void givenRangeOfDateShouldReturnCheapestHotelAtThatPeriod() {
         HotelReservationSystem hotelReservationSystem = new HotelReservationSystem();
         hotelReservationSystem.addHotel();
 
@@ -32,5 +32,20 @@ public class TestHotelReservationSystem {
         System.out.println(cheapestHotel);
 
         Assertions.assertEquals("Lakewood, Total Price = $220", cheapestHotel);
+    }
+
+    @Test
+    public void whenWeekdayAndWeekendPricesIsAddedToHotelList(){
+        HotelReservationSystem hotelReservationSystem = new HotelReservationSystem();
+
+        hotelReservationSystem.addHotel();
+
+        String hotelName = hotelReservationSystem.ridgewood.getHotelName();
+        Integer hotelPrice = hotelReservationSystem.ridgewood.getWeekdayPrice();
+
+        hotelReservationSystem.print();
+
+        Assertions.assertEquals("Ridgewood", hotelName );
+        Assertions.assertEquals(220, hotelPrice);
     }
 }

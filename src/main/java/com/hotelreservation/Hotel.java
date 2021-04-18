@@ -2,11 +2,13 @@ package com.hotelreservation;
 
 public class Hotel {
     private String hotelName;
-    private int price;
+    private int weekdayPrice;
+    private int weekendPrice;
 
-    public Hotel(String hotelName, int price){
+    public Hotel(String hotelName, int weekdayPrice, int weekendPrice){
         setHotelName(hotelName);
-        setPrice(price);
+        setWeekdayPrice(weekdayPrice);
+        setWeekendPrice(weekendPrice);
     }
     public String getHotelName() {
         return hotelName;
@@ -16,20 +18,28 @@ public class Hotel {
         this.hotelName = hotelName;
     }
 
-    public int getPrice() {
-        return price;
+    public int getWeekdayPrice() {
+        return weekdayPrice;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setWeekdayPrice(int weekdayPrice) {
+        this.weekdayPrice = weekdayPrice;
+    }
+
+    public int getWeekendPrice() {
+        return weekendPrice;
+    }
+
+    public void setWeekendPrice(int weekendPrice) {
+        this.weekendPrice = weekendPrice;
     }
 
     @Override
     public String toString() {
         return "Hotel{" +
-                "HotelName='" + hotelName + '\'' +
-                ", Price = $" + price +
+                "hotelName='" + hotelName + '\'' +
+                ", weekdayPrice=" + weekdayPrice +
+                ", weekendPrice=" + weekendPrice +
                 '}';
     }
-
 }
