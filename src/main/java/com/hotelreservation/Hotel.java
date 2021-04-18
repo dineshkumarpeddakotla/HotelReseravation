@@ -6,6 +6,8 @@ public class Hotel {
     private int weekendPrice;
     public int totalPrice;
     private int rating;
+    private int weekdayRewardCustomerPrice;
+    private int weekendCostRewardCustomerPrice;
 
 
     public String getHotelName() {
@@ -40,11 +42,30 @@ public class Hotel {
         this.rating = rating;
     }
 
-    public Hotel(String hotelName, int weekdayPrice, int weekendPrice, int rating) {
+    public int getWeekdayRewardCustomerPrice() {
+        return weekdayRewardCustomerPrice;
+    }
+
+    public void setWeekdayRewardCustomerPrice(int weekdayRewardCustomerPrice) {
+        this.weekdayRewardCustomerPrice = weekdayRewardCustomerPrice;
+    }
+
+    public int getWeekendRewardCustomerPrice() {
+        return weekendCostRewardCustomerPrice;
+    }
+
+    public void setWeekendCostRewardCustomerPrice(int weekendCostRewardCustomerPrice) {
+        this.weekendCostRewardCustomerPrice = weekendCostRewardCustomerPrice;
+    }
+
+    public Hotel(String hotelName, int weekdayPrice, int weekendPrice, int rating,
+                 int weekdayRewardCustomerPrice, int weekendCostRewardCustomerPrice) {
         setHotelName(hotelName);
         setWeekdayPrice(weekdayPrice);
         setWeekendPrice(weekendPrice);
         setRating(rating);
+        setWeekdayRewardCustomerPrice(weekdayRewardCustomerPrice);
+        setWeekendCostRewardCustomerPrice(weekendCostRewardCustomerPrice);
     }
 
     @Override
