@@ -5,9 +5,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class HotelReservationSystem {
@@ -32,19 +30,17 @@ public class HotelReservationSystem {
      * @param checkOutDate Check Out Date
      * @return cheapestHotelList
      */
-    public List<Map.Entry<String, Hotel>> findCheapestHotel(String checkInDate, String checkOutDate) {
+    public Map.Entry<String, Hotel> findBestCheapestRatedHotel(String checkInDate, String checkOutDate) {
 
         for(Map.Entry<String, Hotel> hotelEntry: listOfHotels.entrySet()) {
             calculateTotalPrice(checkInDate, checkOutDate, hotelEntry);
         }
 
-        Map.Entry<String, Hotel> cheapestHotel =  listOfHotels.entrySet().stream().
-                min(Comparator.comparing(hotel -> hotel.getValue().totalPrice)).orElseThrow();
-
-        Stream<Map.Entry<String, Hotel>> cheapestHotelStream = listOfHotels.entrySet().
-                stream().filter(hotel -> hotel.getValue().totalPrice == cheapestHotel.getValue().totalPrice);
-
-        return cheapestHotelStream.collect(Collectors.toList());
+        Map.Entry<String, Hotel> cheapestHotel =  listOfHotels.entrySet().stream()
+                                                              .min(Comparator.comparing(hotel -> hotel.getValue().totalPrice)).orElseThrow();
+        Stream<Map.Entry<String, Hotel>> cheapestHotelStream = listOfHotels.entrySet().stream()
+                                                                           .filter(hotel -> hotel.getValue().totalPrice == cheapestHotel.getValue().totalPrice);
+        return cheapestHotelStream.max(Comparator.comparing(hotel -> hotel.getValue().getRating())).orElseThrow();
     }
 
     /**
