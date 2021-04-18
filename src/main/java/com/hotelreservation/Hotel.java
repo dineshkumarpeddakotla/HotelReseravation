@@ -51,8 +51,8 @@ public class Hotel {
     public String toString() {
         return "Hotel{" +
                 "hotelName='" + hotelName + '\'' +
-                ", totalPrice=" + totalPrice +
-                ", rating=" + rating +
+                ", totalPrice = $" + totalPrice +
+                ", rating = " + rating +
                 '}';
     }
 }
